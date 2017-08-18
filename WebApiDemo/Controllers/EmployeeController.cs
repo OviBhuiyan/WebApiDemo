@@ -19,9 +19,10 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpPost]
-        public  Employee GetEmployeeById(string Id)
+        public  Employee GetEmployeeById(string emp)
+
         {
-            var a = Convert.ToInt32(Id);
+            int a = 1; //Convert.ToInt32(Id);
             return db.Employees.Where(e => e.ID.Equals(a)).FirstOrDefault();
         }
 
