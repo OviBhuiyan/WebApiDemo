@@ -10,12 +10,12 @@
             var ulEmployees = $('#ulEmployees');
 
             $('#btn').click(function () {
-               
+
                 $.ajax({
                     type: 'GET',
                     url: 'http://localhost:57321/api/Employee',
                     dataType: 'jsonp',
-                    //contentType: 'application/json',
+                    Accept: 'application/json',
                     success: function (data) {
                         alert(data);
                         ulEmployees.empty();

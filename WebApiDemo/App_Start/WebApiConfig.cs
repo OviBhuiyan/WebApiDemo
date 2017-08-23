@@ -11,6 +11,7 @@ using System.Collections;
 using System.IO;
 using System.Threading.Tasks;
 using System.Net;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace WebApiDemo
 {
@@ -204,6 +205,9 @@ namespace WebApiDemo
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            config.Formatters.Insert(0, jsonpFormatter);
 
            // config.Formatters.Add(new CustomJsonFormatter());
            // config.Formatters.Add(new CSVMediaTypeFormatter());
