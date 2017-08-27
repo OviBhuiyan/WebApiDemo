@@ -5,19 +5,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using EmplyeeDB;
+using System.Web.Http.Cors;
+
 namespace WebApiDemo.Controllers
 {
     [AllowAnonymous]
+
+   
     public class EmployeeController : ApiController
     {
         EmployeeDBEntities db = new EmployeeDBEntities();
-
+       
+        
         [HttpGet]
         public  IEnumerable<Employee> GetEmployeeList()
         {
             return db.Employees.ToList();
         }
 
+        [DisableCors]
         [HttpGet]
         public  HttpResponseMessage GetEmployeeById(int id)
 
